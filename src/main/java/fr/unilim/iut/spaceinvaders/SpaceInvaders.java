@@ -23,15 +23,6 @@ public class SpaceInvaders {
 		vaisseau = new Vaisseau(x, y); 
 	}
 
-	private boolean estDansEspaceJeu(int x, int y) {
-		return ((x >= 0) && (x < longueur)) && ((y >= 0) && (y < hauteur));
-	}
-    
-	@Override
-	public String toString() {
-		return recupererEspaceJeuDansChaineASCII();
-	}
-
 	public String recupererEspaceJeuDansChaineASCII() {
 		StringBuilder espaceDeJeu = new StringBuilder();
 		for (int y = 0; y < hauteur; y++) {
@@ -43,6 +34,26 @@ public class SpaceInvaders {
 		return espaceDeJeu.toString();
 	}
 
+ 	public void deplacerVaisseauVersLaDroite() {
+        if (vaisseau.abscisse() < (longueur-1)) vaisseau.seDeplacerVersLaDroite();
+	}
+
+	public void deplacerVaisseauVersLaGauche() {
+		if (vaisseau.abscisse() > (longueur-longueur)) vaisseau.seDeplacerVersLaGauche();
+	}
+	
+	private boolean estDansEspaceJeu(int x, int y) {
+		return ((x >= 0) && (x < longueur)) && ((y >= 0) && (y < hauteur));
+	}
+	
+	private boolean aUnVaisseau() {
+		return vaisseau!=null;
+	}
+	
+	private boolean aUnVaisseauQuiOccupeLaPosition(int x, int y) {
+		return this.aUnVaisseau() && vaisseau.occupeLaPosition(x, y);
+	}
+
 	private char recupererMarqueDeLaPosition(int x, int y) {
 		char marque;
 		if (this.aUnVaisseauQuiOccupeLaPosition(x, y))
@@ -50,21 +61,5 @@ public class SpaceInvaders {
 		else
 		      marque=MARQUE_VIDE;
 		return marque;
-	}
-
-	private boolean aUnVaisseauQuiOccupeLaPosition(int x, int y) {
-		return this.aUnVaisseau() && vaisseau.occupeLaPosition(x, y);
-	}
-
-	private boolean aUnVaisseau() {
-		return vaisseau!=null;
-	}
-
- 	public void deplacerVaisseauVersLaDroite() {
-        if (vaisseau.abscisse() < (longueur-1)) vaisseau.seDeplacerVersLaDroite();
-	}
-
-	public void deplacerVaisseauVersLaGauche() {
-		if (vaisseau.abscisse() > (longueur-longueur)) vaisseau.seDeplacerVersLaGauche();
 	}
 }
