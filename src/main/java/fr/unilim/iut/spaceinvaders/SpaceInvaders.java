@@ -52,7 +52,7 @@ public class SpaceInvaders<missile> implements Jeu {
 
 	public void deplacerVaisseauVersLaDroite() {
 		if (vaisseau.abscisseLaPlusADroite() < (longueur - 1)) {
-			vaisseau.seDeplacerVersLaDroite();
+			vaisseau.deplacerHorizontalementVers(Direction.DROITE);
 			if (!estDansEspaceJeu(vaisseau.abscisseLaPlusADroite(), vaisseau.ordonneeLaPlusHaute())) {
 				vaisseau.positionner(longueur - vaisseau.longueur(), vaisseau.ordonneeLaPlusHaute());
 			}
@@ -61,7 +61,7 @@ public class SpaceInvaders<missile> implements Jeu {
 
 	public void deplacerVaisseauVersLaGauche() {
 		if (0 < vaisseau.abscisseLaPlusAGauche())
-			vaisseau.seDeplacerVersLaGauche();
+			vaisseau.deplacerHorizontalementVers(Direction.GAUCHE);
 		if (!estDansEspaceJeu(vaisseau.abscisseLaPlusAGauche(), vaisseau.ordonneeLaPlusHaute())) {
 			vaisseau.positionner(0, vaisseau.ordonneeLaPlusHaute());
 		}
@@ -117,10 +117,13 @@ public class SpaceInvaders<missile> implements Jeu {
 			deplacerVaisseauVersLaDroite();
 		}
 
-		if (commandeUser.espace && !this.aUnMissile())
+		if (commandeUser.espace && !this.aUnMissile()) {
 			tirerUnMissile(new Dimension(Constante.MISSILE_LONGUEUR, Constante.MISSILE_HAUTEUR),
 					Constante.MISSILE_VITESSE);
-
+		}
+		if (aUnMissile()) {
+			deplacerMissile();
+		}
 	}
 
 	@Override
@@ -141,5 +144,13 @@ public class SpaceInvaders<missile> implements Jeu {
 					"Pas assez de hauteur libre entre le vaisseau et le haut de l'espace jeu pour tirer le missile");
 
 		this.missile = this.vaisseau.tirerUnMissile(dimensionMissile, vitesseMissile);
+	}
+
+	public void deplacerMissile() {
+		if (0 < missile.ordonneeLaPlusHaute())
+			missile.deplacerVerticalementVers(Direction.HAUT_ECRAN);
+		if (!estDansEspaceJeu(missile.abscisseLaPlusAGauche(), missile.ordonneeLaPlusBasse())) {
+			missile=null;
+		}
 	}
 }
