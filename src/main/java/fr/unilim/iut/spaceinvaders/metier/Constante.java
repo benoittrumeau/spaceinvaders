@@ -1,9 +1,9 @@
-package fr.unilim.iut.spaceinvaders;
+package fr.unilim.iut.spaceinvaders.metier;
 
 public class Constante {
 
-	public static final int ESPACEJEU_LONGUEUR = 150; //150
-	public static final int ESPACEJEU_HAUTEUR = 100; //100
+	public static final int ESPACEJEU_LONGUEUR = 800; //150
+	public static final int ESPACEJEU_HAUTEUR = 600; //100
 
 	public static final int VAISSEAU_LONGUEUR = 30; //30
 	public static final int VAISSEAU_HAUTEUR = 20; //20

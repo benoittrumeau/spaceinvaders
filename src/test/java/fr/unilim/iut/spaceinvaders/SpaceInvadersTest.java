@@ -6,6 +6,9 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import fr.unilim.iut.spaceinvaders.metier.Dimension;
+import fr.unilim.iut.spaceinvaders.metier.Position;
+import fr.unilim.iut.spaceinvaders.metier.SpaceInvaders;
 import fr.unilim.iut.spaceinvaders.utils.DebordementEspaceJeuException;
 import fr.unilim.iut.spaceinvaders.utils.HorsEspaceJeuException;
 import fr.unilim.iut.spaceinvaders.utils.MissileException;
@@ -404,5 +407,37 @@ public class SpaceInvadersTest {
       "...............\n" + 
       "...............\n" + 
       "...............\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
+   }
+   
+   @Test
+   public void test_TirerPlusieursMissiles(){
+	   
+	   spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7,2), new Position(5,9), 2);
+	   spaceinvaders.tirerUnMissile(new Dimension(3,2), 3);
+	   spaceinvaders.deplacerMissile();
+	   
+	   spaceinvaders.tirerUnMissile(new Dimension(3,2), 1);
+	  
+	   
+	      assertEquals("" + 
+	      "...............\n" + 
+	      "...............\n" +
+	      "...............\n" + 
+	      ".......MMM.....\n" + 
+	      ".......MMM.....\n" + 
+	      "...............\n" + 
+	      ".......MMM.....\n" + 
+	      ".......MMM.....\n" + 
+	      ".....VVVVVVV...\n" + 
+	      ".....VVVVVVV...\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
+   }
+   
+   @Test
+   public void test_TirerPlusieursMissilesSeparement(){
+	   spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7,2), new Position(5,9), 2);
+	   spaceinvaders.tirerUnMissile(new Dimension(3,2), 1);	   
+	   spaceinvaders.tirerUnMissile(new Dimension(3,2), 1);
+	  
+	   assertEquals(1,spaceinvaders.recupererMissile().size());
    }
 }

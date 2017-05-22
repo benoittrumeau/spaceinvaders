@@ -1,5 +1,6 @@
 package fr.unilim.iut.spaceinvaders.moteurjeu;
 
+import javax.swing.JOptionPane;
 
 /**
  * classe MoteurGraphique represente un moteur de jeu generique.
@@ -16,7 +17,7 @@ public class MoteurGraphique {
 	/**
 	 * l'interface graphique
 	 */
-	private InterfaceGraphique gui;
+	public InterfaceGraphique gui;
 
 	/**
 	 * l'afficheur a utiliser pour le rendu
@@ -58,5 +59,4 @@ public class MoteurGraphique {
 			Thread.sleep(100);
 		}
 	}
-
 }

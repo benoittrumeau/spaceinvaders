@@ -7,6 +7,12 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import fr.unilim.iut.spaceinvaders.metier.Collision;
+import fr.unilim.iut.spaceinvaders.metier.Dimension;
+import fr.unilim.iut.spaceinvaders.metier.Envahisseur;
+import fr.unilim.iut.spaceinvaders.metier.Missile;
+import fr.unilim.iut.spaceinvaders.metier.Position;
+
 public class CollisionTest {
 	private Collision collision = new Collision();
 	
