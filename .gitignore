@@ -1,8 +1,7 @@
-/target/
-a    # Eclipse    
-    .classpath    
-    .project    
-    .settings/
+# Eclipse
+    /.classpath
+    /.project
+    /.settings/
 
     # Maven
-    target/
+    /target/

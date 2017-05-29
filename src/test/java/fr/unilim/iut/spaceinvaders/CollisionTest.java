@@ -13,6 +13,7 @@ import fr.unilim.iut.spaceinvaders.metier.Envahisseur;
 import fr.unilim.iut.spaceinvaders.metier.Missile;
 import fr.unilim.iut.spaceinvaders.metier.Position;
 
+@SuppressWarnings("unused")
 public class CollisionTest {
 	private Collision collision = new Collision();
 	
