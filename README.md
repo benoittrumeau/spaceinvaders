@@ -5,4 +5,4 @@ Nous avons travailler à deux sur ce mini-projet en **pair programming**.
 
 Vous pourrez donc voir le **code du jeu** à partir de ce repositorie.
 
-######**<p align="center">Enjoy !</p>**
+##**<p align="center">Enjoy !</p>**
